@@ -1,0 +1,79 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  min-height: 450px;
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+.google-map {
+  border: 1px solid #ccc;
+  width: 100%;
+  max-width: 750px;
+  min-height: 500px;
+  max-height: 700px;
+  margin: 0 auto;
+}
+
+/* Maker header - start */
+.gm-style-iw-chr {
+  display: flex;
+  justify-content: end;
+  position: absolute;
+  right: 0;
+}
+
+.gm-style-iw-chr button {
+  /* position: absolute!important; */
+}
+
+.gm-style-iw-chr .gm-style-iw-ch {
+  display: none;
+}
+
+.gm-style .gm-style-iw-d {
+  padding-top: 1rem;
+  padding-right: 1.1rem;
+}
+/* Maker header - end */
+
+.marker-content {
+  font-family: sans-serif;
+  /* padding: 1rem; */
+}
+
+.marker-content h3 {
+  padding-bottom: .6rem;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.marker-content p {
+  padding-bottom: .5rem;
+  font-weight: 500;
+}
+
+.google-map div:nth-child(1) {
+  /* position: relative;
+  z-index: 999; */
+}
+
+.google-map div:nth-child(2) {
+  /* position: fixed!important;
+  top: -100%;
+  z-index: -999!important; */
+
+  /* visibility: none; */
+  /* display: none; */
+  /* opacity: 0; */
+}
