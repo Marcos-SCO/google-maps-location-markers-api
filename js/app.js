@@ -1,5 +1,9 @@
 import { barueriTouristicLocationMarkers } from './markers.js';
 
+import { drawDashedLine } from './drawDashedLines.js';
+
+import { getDistrictCoordinates } from './districtCords.js';
+
 window.initMap = function initMap() {
   const googleMapElement = document.querySelector('[data-js="google-map"]');
   if (!googleMapElement) return;
@@ -41,6 +45,8 @@ window.initMap = function initMap() {
 
   const bounds = new google.maps.LatLngBounds();
 
+  const markerPositions = [];
+
   if (!barueriTouristicLocationMarkers) return;
 
   const infoWindow = new google.maps.InfoWindow({
@@ -81,6 +87,8 @@ window.initMap = function initMap() {
 
     bounds.extend(new google.maps.LatLng(location.lat, location.lng));
 
+    markerPositions.push({ lat: location.lat, lng: location.lng });
+
     // Listen for close click event on InfoWindow
     google.maps.event.addListener(infoWindow, 'closeclick', function () {
       map.fitBounds(bounds);
@@ -94,6 +102,16 @@ window.initMap = function initMap() {
   google.maps.event.addListener(map, "click", function () {
     infoWindow.close();
     map.fitBounds(bounds);
+  });
+
+
+  getDistrictCoordinates('perdizes', 'são paulo').then(districtCoords => {
+    drawDashedLine(map, districtCoords);
+  });
+
+  getDistrictCoordinates('', 'Barueri').then(mak => {
+    
+    drawDashedLine(map, mak);
   });
 
 };
